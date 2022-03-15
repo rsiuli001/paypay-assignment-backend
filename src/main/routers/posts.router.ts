@@ -51,9 +51,8 @@ postsRouter.get('/:userId', async (req: Request, res: Response) => {
 postsRouter.post('/', async (req: Request, res: Response) => {
   try {
     const post: Post = req.body;
-    const newUser = await PostService.create(post);
-
-    res.status(201).json(newUser);
+    const newPost = await PostService.create(post);
+    res.status(201).json(newPost);
   } catch (e: any) {
     res.status(500).send(e.message);
   }

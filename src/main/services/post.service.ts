@@ -10,10 +10,7 @@ const findByUser = async (userId: string): Promise<Post[]> =>
 
 // create
 const create = async (newPost: Post): Promise<Post> => {
-  PostDB[newPost.id] = {
-    ...newPost,
-  };
-
+  PostDB[newPost.id] = newPost;
   return PostDB[newPost.id];
 };
 
