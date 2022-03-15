@@ -18,7 +18,7 @@ loginRouter.post('/', async (req: Request, res: Response) => {
     }
 
     res.status(204).send('No Content');
-  } catch (e) {
+  } catch (e: any) {
     res.status(500).send(e.message);
   }
 });

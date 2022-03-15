@@ -19,7 +19,7 @@ userRouter.get('/', async (request: Request, response: Response) => {
   try {
     const users: User[] = await UserService.findAll();
     response.status(200).send(users);
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });
@@ -35,7 +35,7 @@ userRouter.get('/:id', async (request: Request, response: Response) => {
     }
 
     response.status(404).send('Item not found');
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });
@@ -49,7 +49,7 @@ userRouter.get('/all/:id', async (request: Request, response: Response) => {
       return response.status(200).send(users);
     }
     response.status(404).send('Item not found');
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });
@@ -61,7 +61,7 @@ userRouter.post('/', async (req: Request, res: Response) => {
     const newUser = await UserService.create(user);
 
     res.status(201).json(newUser);
-  } catch (e) {
+  } catch (e: any) {
     res.status(500).send(e.message);
   }
 });
@@ -80,7 +80,7 @@ userRouter.put('/:id', async (request: Request, response: Response) => {
 
     const newUser = await UserService.create(userUpdate);
     response.status(201).json(newUser);
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });
@@ -92,7 +92,7 @@ userRouter.delete('/:id', async (request: Request, response: Response) => {
     await UserService.remove(id);
 
     response.sendStatus(204);
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });

@@ -12,7 +12,7 @@ prRouter.get('/', async (request: Request, response: Response) => {
   try {
     const PRs: PerformanceReview[] = await PRService.findAll();
     response.status(200).send(PRs);
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });
@@ -27,7 +27,7 @@ prRouter.get('/:id', async (request: Request, response: Response) => {
       return response.status(200).send(pr);
     }
     response.status(404).send('Item not found');
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });
@@ -39,7 +39,7 @@ prRouter.post('/', async (req: Request, res: Response) => {
     const newPR = await PRService.create(pr);
 
     res.status(201).json(newPR);
-  } catch (e) {
+  } catch (e: any) {
     res.status(500).send(e.message);
   }
 });
@@ -58,7 +58,7 @@ prRouter.put('/:id', async (request: Request, response: Response) => {
 
     const newPR = await PRService.create(prUpdate);
     response.status(201).json(newPR);
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });
@@ -70,7 +70,7 @@ prRouter.delete('/:id', async (request: Request, response: Response) => {
     await PRService.remove(id);
 
     response.sendStatus(204);
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });
@@ -83,7 +83,7 @@ prRouter.get('/employee/:id', async (request: Request, response: Response) => {
       return response.status(200).send(prs);
     }
     response.status(404).send('Item not found');
-  } catch (e) {
+  } catch (e: any) {
     response.status(500).send(e.message);
   }
 });

@@ -1,4 +1,4 @@
-import { PerformanceReviews } from '../users/types';
+import { PerformanceReviews } from '../main/types';
 
 var prDB: PerformanceReviews = {
   1: {

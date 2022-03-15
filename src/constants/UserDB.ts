@@ -1,4 +1,4 @@
-import { Users } from '../users/types';
+import { Users } from '../main/types';
 
 var UserDB: Users = {
   1: {

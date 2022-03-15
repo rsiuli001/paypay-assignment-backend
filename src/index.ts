@@ -7,7 +7,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { errorHandler } from './middleware/error.middleware';
 import { notFoundHandler } from './middleware/not-found.middleware';
-import { loginRouter, prRouter, userRouter } from './users/routers';
+import { loginRouter, prRouter, userRouter } from './main/routers';
+import { postsRouter } from './main/routers/posts.router';
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.use(express.json());
 app.use('/api/users', userRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/prs', prRouter);
+app.use('/api/posts', postsRouter);
 
 app.use(errorHandler);
 app.use(notFoundHandler);
